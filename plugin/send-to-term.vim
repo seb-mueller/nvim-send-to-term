@@ -41,7 +41,7 @@ function! s:SendLinesToTerm(lines) dict
     else
         let line = a:lines[0] . s:nl
     endif
-    call jobsend(self.term_id, line)
+    call chansend(self.term_id, line)
     " If sending over multiple commands ([count]ss), slow down a little to
     " let some REPLs catch up (IPython, basically)
     if v:count1 > 1
